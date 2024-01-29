@@ -102,6 +102,31 @@
             "config": {},
             "routes": [],
             "targets": {}
+        },
+        "extends" : {
+            "extensions" : {
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "controllerName" : "ns.fesalesorders.ext.controller.ListReportExtension"
+                    }
+                },
+                "sap.ui.viewExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "ResponsiveTableColumnsExtension|SalesOrderSet": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "ns.fesalesorders.ext.fragments.CustomColumn",
+                            "type": "XML",
+                            "id": "DateCreated"
+                        },
+                        "ResponsiveTableCellsExtension|SalesOrderSet": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "ns.fesalesorders.ext.fragments.CustomCell",
+                            "type": "XML",
+                            "id": "DateCreated"
+                        }
+                    }
+                }
+            }
         }
     },
     "sap.ui.generic.app": {

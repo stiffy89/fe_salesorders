@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <Text text="{
+        path : 'CreatedAt',
+        formatter : '.extension.ns.fesalesorders.ext.controller.ListReportExtension.DateFormatter'
+    }"></Text>
+</core:FragmentDefinition>

@@ -13,7 +13,16 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrder/GrossAmount">
+                <Annotation Term="Common.Label" String="Gross Amount"/>
+            </Annotations>
             <Annotations Target="GWSAMPLE_BASIC.SalesOrder">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>CustomerName</PropertyPath>
+                        <PropertyPath>GrossAmount</PropertyPath>
+                    </Collection>
+                </Annotation>
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type='UI.DataField'>
@@ -29,16 +38,91 @@
                             <PropertyValue Property="Label" String="Customer Name"/>
                         </Record>
                         <Record Type='UI.DataField'>
-                            <PropertyValue Property="Value" Path="CreatedAt"/>
-                            <PropertyValue Property="Label" String="Date Created"/>
-                        </Record>
-                        <Record Type='UI.DataField'>
                             <PropertyValue Property="Value" Path="GrossAmount"/>
                             <PropertyValue Property="Label" String="Gross Amount"/>
                         </Record>
                     </Collection>
                 </Annotation >
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Sales Order"/>
+                        <PropertyValue Property="TypeNamePlural" String="Sales Orders"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="SalesOrderID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection >
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Header Information"/>
+                            <PropertyValue Property="ID" String="headerinformation"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#headerinformation"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Order Items"/>
+                            <PropertyValue Property="ID" String="orderitems"/>
+                            <PropertyValue Property="Target" AnnotationPath="ToLineItems/@UI.LineItem#orderitems"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="headerinformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Note"/>
+                                    <PropertyValue Property="Label" String="Note"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CustomerName"/>
+                                    <PropertyValue Property="Label" String="Customer"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedAt"/>
+                                    <PropertyValue Property="Label" String="Creation Date"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ChangedAt"/>
+                                    <PropertyValue Property="Label" String="Edited Date"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="DeliveryStatus"/>
+                                    <PropertyValue Property="Label" String="Delivery Status"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
             </Annotations >
+
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrderLineItem">
+                <!-- > Annotation to add line items to our </-->
+                <Annotation Term="UI.LineItem" Qualifier="orderitems">
+                    <Collection>
+                        <Record Type='UI.DataField'>
+                            <PropertyValue Property="Value" Path="ProductID"/>
+                            <PropertyValue Property="Label" String="Product ID"/>
+                        </Record>
+                        <Record Type='UI.DataField'>
+                            <PropertyValue Property="Value" Path="ToProduct/Name"/>
+                            <PropertyValue Property="Label" String="Name"/>
+                        </Record>
+                        <Record Type='UI.DataField'>
+                            <PropertyValue Property="Value" Path="ToProduct/Price"/>
+                            <PropertyValue Property="Label" String="Unit Price"/>
+                        </Record>
+                        <Record Type='UI.DataField'>
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                            <PropertyValue Property="Label" String="Quantity"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations >
+           
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
