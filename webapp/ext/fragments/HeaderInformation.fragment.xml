@@ -1,12 +1,13 @@
 <core:FragmentDefinition xmlns:sfi="sap.ui.comp.smartfield" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:sfo="sap.ui.comp.smartform">
-    <!-- > Annotation to add line items to our 
+    
     <sfo:GroupElement>
         <sfo:label>
             <Label text='Delivery Status'/>
         </sfo:label>
         <sfo:elements>
            <ObjectStatus 
-                text="{/DeliveryStatusDescription}"
+                text="{DeliveryStatusDescription}"
+                inverted="true"
                 state="{
                     path: 'DeliveryStatus',
                     formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.DeliveryStatusFormatter'
@@ -21,15 +22,16 @@
         </sfo:label>
         <sfo:elements>
            <ObjectStatus 
-                text="{/BillingStatusDescription}"
+                text="{BillingStatusDescription}"
+                inverted="true"
                 state="{
-                    path: 'DeliveryStatus',
+                    path: 'BillingStatus',
                     formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.BillingStatusFormatter'
                 }"
             />
         </sfo:elements>
     </sfo:GroupElement>
-    </-->
+    
     
     <sfo:GroupElement>
         <sfo:label>

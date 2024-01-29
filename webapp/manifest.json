@@ -172,7 +172,16 @@
                         "entitySet": "SalesOrderSet",
                         "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
                         "component": {
-                            "name": "sap.suite.ui.generic.template.ObjectPage"
+                            "name": "sap.suite.ui.generic.template.ObjectPage",
+                            "settings" : {
+                                "sections" : {
+                                    "ToLineItems::com.sap.vocabularies.UI.v1.LineItem" : {
+                                        "navigationProperty" : "ToLineItems",
+                                        "entitySet" : "SalesOrderLineItemSet",
+                                        "createMode" : "inline"
+                                    }
+                                }
+                            }
                         },
                         "pages": {
                             "ObjectPage|ToLineItems": {
