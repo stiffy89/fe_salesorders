@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns:sfi="sap.ui.comp.smartfield" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:sfo="sap.ui.comp.smartform">
+    <!-- > Annotation to add line items to our 
+    <sfo:GroupElement>
+        <sfo:label>
+            <Label text='Delivery Status'/>
+        </sfo:label>
+        <sfo:elements>
+           <ObjectStatus 
+                text="{/DeliveryStatusDescription}"
+                state="{
+                    path: 'DeliveryStatus',
+                    formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.DeliveryStatusFormatter'
+                }"
+            />
+        </sfo:elements>
+    </sfo:GroupElement>
+
+    <sfo:GroupElement>
+        <sfo:label>
+            <Label text='Billing Status'/>
+        </sfo:label>
+        <sfo:elements>
+           <ObjectStatus 
+                text="{/BillingStatusDescription}"
+                state="{
+                    path: 'DeliveryStatus',
+                    formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.BillingStatusFormatter'
+                }"
+            />
+        </sfo:elements>
+    </sfo:GroupElement>
+    </-->
+    
+    <sfo:GroupElement>
+        <sfo:label>
+            <Label text='Date Created'/>
+        </sfo:label>
+        <sfo:elements>
+           <Text 
+                text="{
+                    path: 'CreatedAt',
+                    formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.DateFormatter'
+                }"
+            />
+        </sfo:elements>
+    </sfo:GroupElement>
+
+    <sfo:GroupElement>
+        <sfo:label>
+            <Label text='Date Edited'/>
+        </sfo:label>
+        <sfo:elements>
+           <Text 
+                text="{
+                    path: 'ChangedAt',
+                    formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.DateFormatter'
+                }"
+            />
+        </sfo:elements>
+    </sfo:GroupElement>
+    
+</core:FragmentDefinition>

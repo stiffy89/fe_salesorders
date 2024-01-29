@@ -11,6 +11,20 @@ sap.ui.define([
             } else {
                 return source
             } 
+        },
+        DeliveryStatusFormatter: function (sDeliveryStatus) {
+            if (sDeliveryStatus == "D") {
+                return "Success"
+            } else {
+                return 'None'
+            }
+        },
+        BillingStatusFormatter: function (sPaidStatus) {
+            if (sPaidStatus == "P"){
+                return "Success"
+            } else {
+                return "None"
+            }
         }
     }) 
 });

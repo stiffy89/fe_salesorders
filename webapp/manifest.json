@@ -53,7 +53,7 @@
         }
     },
     "sap.ui5": {
-        "flexEnabled": true,
+        "flexEnabled": false,
         "dependencies": {
             "minUI5Version": "1.120.4",
             "libs": {
@@ -108,6 +108,9 @@
                 "sap.ui.controllerExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
                         "controllerName" : "ns.fesalesorders.ext.controller.ListReportExtension"
+                    },
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details" : {
+                        "controllerName" : "ns.fesalesorders.ext.controller.ListReportExtension"
                     }
                 },
                 "sap.ui.viewExtensions": {
@@ -123,6 +126,13 @@
                             "fragmentName": "ns.fesalesorders.ext.fragments.CustomCell",
                             "type": "XML",
                             "id": "DateCreated"
+                        }
+                    },
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details" : {
+                        "SmartFormExtension|SalesOrderSet|headerinformation": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "ns.fesalesorders.ext.fragments.HeaderInformation",
+                            "type": "XML"
                         }
                     }
                 }
