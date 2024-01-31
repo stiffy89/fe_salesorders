@@ -110,7 +110,7 @@
                         "controllerName" : "ns.fesalesorders.ext.controller.ListReportExtension"
                     },
                     "sap.suite.ui.generic.template.ObjectPage.view.Details" : {
-                        "controllerName" : "ns.fesalesorders.ext.controller.ListReportExtension"
+                        "controllerName" : "ns.fesalesorders.ext.controller.ObjectPageExtension"
                     }
                 },
                 "sap.ui.viewExtensions": {
@@ -164,6 +164,9 @@
                         },
                         "dataLoadSettings": {
                             "loadDataOnAppLaunch": "always"
+                        },
+                        "createWithFilters": {        
+                            "strategy": "extension"       
                         }
                     }
                 },
@@ -172,16 +175,7 @@
                         "entitySet": "SalesOrderSet",
                         "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
                         "component": {
-                            "name": "sap.suite.ui.generic.template.ObjectPage",
-                            "settings" : {
-                                "sections" : {
-                                    "ToLineItems::com.sap.vocabularies.UI.v1.LineItem" : {
-                                        "navigationProperty" : "ToLineItems",
-                                        "entitySet" : "SalesOrderLineItemSet",
-                                        "createMode" : "inline"
-                                    }
-                                }
-                            }
+                            "name": "sap.suite.ui.generic.template.ObjectPage"
                         },
                         "pages": {
                             "ObjectPage|ToLineItems": {

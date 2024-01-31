@@ -4,16 +4,13 @@ sap.ui.define([
 ], function(MessageToast, ControllerExtension) {
     'use strict';
 
-    return ControllerExtension.extend('ns.fesalesorders.ext.controller.ListReportExtension', {
+    return ControllerExtension.extend('ns.fesalesorders.ext.controller.ObjectPageExtension', {
         override: {
             onInit: function () {
                 console.log(this)
             },
             beforeSaveExtension: function () {
                 console.log(this)
-            },
-            beforeDeleteExtension: function () {
-                console.log('here')
             },
             getPredefinedValuesForCreateExtension : function (oSmartFilterBar, oDefaultValues) {
                 var oRet = {};

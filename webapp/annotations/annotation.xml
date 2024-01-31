@@ -1,4 +1,7 @@
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core"/>
+    </edmx:Reference>
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
         <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
     </edmx:Reference>
@@ -12,10 +15,70 @@
         <edmx:Include Namespace="GWSAMPLE_BASIC"/>
     </edmx:Reference>
     <edmx:DataServices>
+    
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrder/Note">
+                <Annotation Term="Common.DerivedDefaultValue" String="DefaultForCreate"/>
+            </Annotations>
+
             <Annotations Target="GWSAMPLE_BASIC.SalesOrder/GrossAmount">
                 <Annotation Term="Common.Label" String="Gross Amount"/>
             </Annotations>
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrder/NetAmount">
+                <Annotation Term="Core.Computed"/>
+            </Annotations>
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrder/TaxAmount">
+                <Annotation Term="Core.Computed"/>
+            </Annotations>
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrder/Note">
+                <Annotation Term="UI.MultiLineText" Bool="true"/>
+            </Annotations>
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrder/CustomerID">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="BusinessPartnerSet"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="BusinessPartnerID"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BusinessPartnerID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Customer"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="GWSAMPLE_BASIC.SalesOrderLineItem/ProductID">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ProductSet"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="ProductID"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="Products"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+
             <Annotations Target="GWSAMPLE_BASIC.SalesOrder">
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
@@ -74,7 +137,11 @@
                             <Collection>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="Note"/>
-                                    <PropertyValue Property="Label" String="Note"/>
+                                    <PropertyValue Property="Label" String="Order Note"/>
+                                </Record>
+                                <Record Type='UI.DataField'>
+                                    <PropertyValue Property="Value" Path="CustomerID"/>
+                                    <PropertyValue Property="Label" String="Customer ID"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="CustomerName"/>
@@ -117,6 +184,66 @@
                         </Record>
                     </Collection>
                 </Annotation>
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Product"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductID"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ToProduct/Name"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                
+                <Annotation Term="UI.Facets">
+                    <Collection >
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Product Information"/>
+                            <PropertyValue Property="ID" String="productinformation"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#productinformation"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="productinformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductID"/>
+                                    <PropertyValue Property="Label" String="Product ID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ToProduct/Name"/>
+                                    <PropertyValue Property="Label" String="Product Name"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ToProduct/Description"/>
+                                    <PropertyValue Property="Label" String="Description"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ToProduct/Category"/>
+                                    <PropertyValue Property="Label" String="Category"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ToProduct/SupplierName"/>
+                                    <PropertyValue Property="Label" String="Supplier Name"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ToProduct/Price"/>
+                                    <PropertyValue Property="Label" String="Unit Price"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            
             </Annotations >
            
         </Schema>
