@@ -6,20 +6,7 @@ sap.ui.define([
 
     return ControllerExtension.extend('ns.fesalesorders.ext.controller.ListReportExtension', {
         override: {
-            onInit: function () {
-                console.log(this)
-            },
-            beforeSaveExtension: function () {
-                console.log(this)
-            },
-            beforeDeleteExtension: function () {
-                console.log('here')
-            },
-            getPredefinedValuesForCreateExtension : function (oSmartFilterBar, oDefaultValues) {
-                var oRet = {};
-                oRet['Note'] = 'Sample';
-                return oRet; 
-            }
+           
         },
         DateFormatter: function (source) {
             if (source){

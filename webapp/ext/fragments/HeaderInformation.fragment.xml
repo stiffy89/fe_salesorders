@@ -10,7 +10,7 @@
                 inverted="true"
                 state="{
                     path: 'DeliveryStatus',
-                    formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.DeliveryStatusFormatter'
+                    formatter: '.extension.ns.fesalesorders.ext.controller.ObjectPageExtension.DeliveryStatusFormatter'
                 }"
             />
         </sfo:elements>
@@ -26,7 +26,7 @@
                 inverted="true"
                 state="{
                     path: 'BillingStatus',
-                    formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.BillingStatusFormatter'
+                    formatter: '.extension.ns.fesalesorders.ext.controller.ObjectPageExtension.BillingStatusFormatter'
                 }"
             />
         </sfo:elements>
@@ -41,7 +41,7 @@
            <Text 
                 text="{
                     path: 'CreatedAt',
-                    formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.DateFormatter'
+                    formatter: '.extension.ns.fesalesorders.ext.controller.ObjectPageExtension.DateFormatter'
                 }"
             />
         </sfo:elements>
@@ -55,7 +55,7 @@
            <Text 
                 text="{
                     path: 'ChangedAt',
-                    formatter: '.extension.ns.fesalesorders.ext.controller.ListReportExtension.DateFormatter'
+                    formatter: '.extension.ns.fesalesorders.ext.controller.ObjectPageExtension.DateFormatter'
                 }"
             />
         </sfo:elements>

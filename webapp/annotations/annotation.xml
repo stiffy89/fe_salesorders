@@ -220,6 +220,10 @@
                                     <PropertyValue Property="Label" String="Product ID"/>
                                 </Record>
                                 <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Quantity"/>
+                                    <PropertyValue Property="Label" String="Quantity"/>
+                                </Record>
+                                <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="ToProduct/Name"/>
                                     <PropertyValue Property="Label" String="Product Name"/>
                                 </Record>

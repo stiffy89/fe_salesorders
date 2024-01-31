@@ -164,9 +164,6 @@
                         },
                         "dataLoadSettings": {
                             "loadDataOnAppLaunch": "always"
-                        },
-                        "createWithFilters": {        
-                            "strategy": "extension"       
                         }
                     }
                 },
