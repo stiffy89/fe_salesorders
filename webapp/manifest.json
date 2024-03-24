@@ -34,6 +34,18 @@
                     "localUri": "annotations/annotation.xml"
                 }
             }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "salesorders-display": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "SalesOrders",
+                    "action": "display"
+                }
+            }
         }
     },
     "sap.ui": {
@@ -81,7 +93,7 @@
                 "dataSource": "mainService",
                 "preload": true,
                 "settings": {
-                    "useBatch" : false,
+                    "useBatch": false,
                     "defaultBindingMode": "TwoWay",
                     "defaultCountMode": "Inline",
                     "refreshAfterChange": false,
@@ -103,14 +115,14 @@
             "routes": [],
             "targets": {}
         },
-        "extends" : {
-            "extensions" : {
+        "extends": {
+            "extensions": {
                 "sap.ui.controllerExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
-                        "controllerName" : "ns.fesalesorders.ext.controller.ListReportExtension"
+                        "controllerName": "ns.fesalesorders.ext.controller.ListReportExtension"
                     },
-                    "sap.suite.ui.generic.template.ObjectPage.view.Details" : {
-                        "controllerName" : "ns.fesalesorders.ext.controller.ObjectPageExtension"
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "controllerName": "ns.fesalesorders.ext.controller.ObjectPageExtension"
                     }
                 },
                 "sap.ui.viewExtensions": {
@@ -128,7 +140,7 @@
                             "id": "DateCreated"
                         }
                     },
-                    "sap.suite.ui.generic.template.ObjectPage.view.Details" : {
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
                         "SmartFormExtension|SalesOrderSet|headerinformation": {
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "ns.fesalesorders.ext.fragments.HeaderInformation",
